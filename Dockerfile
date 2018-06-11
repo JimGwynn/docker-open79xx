@@ -1,6 +1,8 @@
 FROM linuxconfig/nginx
 MAINTAINER bakStaaJ <docker@bakStaaJ.com>
 
+VOLUME /var/lib/mysql
+
 ENV DEBIAN_FRONTEND noninteractive
 
 # Main package installation
@@ -41,8 +43,6 @@ RUN sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
 
 # Clean up
 RUN apt-get clean
-
-VOLUME /var/lib/mysql
 
 EXPOSE 80 3306
 
