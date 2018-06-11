@@ -422,13 +422,13 @@ function list_contacts ($style,$varLN,$varFN,$varCP,$MAC,$dir,$find)
 		//Take out '%' before showing user what they searched for that found 0 results
 		if ($varLN != '%')
 		{
-			$varLN = trim(eregi_replace("%", ",", $varLN));
+			$varLN = trim(preg_replace("%", ",", $varLN));
 		} else {
 			$varLN= '- All -,';
 		}
 		if ($varFN != '%')
 		{
-			$varFN = trim(eregi_replace("%", ",", $varFN));
+			$varFN = trim(preg_replace("%", ",", $varFN));
 		} else {
 			$varFN= '- All -,';
 		}
@@ -436,7 +436,7 @@ function list_contacts ($style,$varLN,$varFN,$varCP,$MAC,$dir,$find)
 		{
 			if ($varCP != '%')
 			{
-				$varCP = trim(eregi_replace("%", ",", $varCP));
+				$varCP = trim(preg_replace("%", ",", $varCP));
 			} else {
 				$varCP= '- All -';
 			}

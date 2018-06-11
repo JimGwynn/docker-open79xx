@@ -473,9 +473,8 @@ function parse_phone ($in_phone)
 {
 	//remove extraneous characters from phone number
 	$chk_phone = trim($in_phone);
-	//$chkExp = "(\-)|(\.)|(\()|(\))|(\ )";
-	//$out_phone = trim(eregi_replace($chkExp, "", $chk_phone));
-	return $in_phone;
+	$out_phone = trim(preg_replace('/[^0-9]/', "", $chk_phone));
+	return $out_phone;
 }
 
 function return_dial($phone,$suppress_prefix)
