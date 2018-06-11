@@ -5,7 +5,7 @@ To use run
 
 docker run -d -p80:80 hdrider465/docker-open79xx
 
-Open a browser and navigate to your docker host http://dockerhost
+Open a browser and navigate to your docker host http://<dockerhost>
 
 Default user is admin password is core
 
