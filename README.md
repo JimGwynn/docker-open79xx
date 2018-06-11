@@ -5,12 +5,12 @@ To use run
 
 docker run -d -p80:80 hdrider465/docker-open79xx
 
-Open a browser and navigate to your docker host http://<dockerhost>
+Open a browser and navigate to your docker host http://dockerhost
 
 Default user is admin password is core
 
-in the SEP<MAC>,cnf.xml phone files add
+in the SEPMAC.cnf.xml phone files add
 
-http://<dockerserver>/PhoneUI as the services URL
+http://dockerserver/PhoneUI as the services URL
 
-<servicesURL>http://<dockerserver>/PhoneUI/</servicesURL>
+<servicesURL>http://dockerserver/PhoneUI/</servicesURL>
