@@ -1,0 +1,18 @@
+<?php
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////
+	/*
+			MySQL Authorization Information
+			Establish DB Connection
+			Entered: 06/10/2018
+	*/
+	$installed = 'true'; //to be able to reinstall, change this to false
+
+
+	$db = mysqli_connect('127.0.0.1', 'admin','core','asterisk');
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////
+
+	?>
