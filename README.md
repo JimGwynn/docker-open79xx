@@ -13,4 +13,4 @@ in the SEPMAC.cnf.xml phone files add
 
 http://dockerserver/PhoneUI as the services URL
 
-<servicesURL>http://dockerserver/PhoneUI/</servicesURL>
+servicesURL>http://dockerserver/PhoneUI/</servicesURL
