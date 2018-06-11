@@ -1,8 +1,6 @@
 FROM linuxconfig/nginx
 MAINTAINER bakStaaJ <docker@bakStaaJ.com>
 
-VOLUME /var/lib/mysql
-
 ENV DEBIAN_FRONTEND noninteractive
 
 # Main package installation
@@ -19,8 +17,8 @@ COPY ./files/nginx.conf /etc/nginx/
 COPY ./files/php.ini /etc/php/7.0/cli
 COPY ./files/php-fcgi /usr/local/sbin/
 RUN chmod o+x /usr/local/sbin/php-fcgi
-RUN chmod 777 /run
-RUN chmod 777 /tmp
+#RUN chmod 777 /run
+#RUN chmod 777 /tmp
 
 # Supervisor configuration files
 COPY ./files/supervisord.conf /etc/supervisor/
@@ -34,7 +32,6 @@ COPY ./files/WebUI /var/www/html/WebUI
 COPY ./files/PhoneUI /var/www/html/PhoneUI
 COPY ./files/lib /var/www/html/lib
 
-
 # Create new MySQL admin user
 RUN service mysql start;mysql -u root -e "CREATE DATABASE asterisk;";mysql -u root asterisk < /var/www/html/db.sql;mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'core';";mysql -u root -e "GRANT ALL PRIVILEGES ON asterisk.* TO 'admin'@'%' WITH GRANT OPTION;";
 
@@ -44,6 +41,8 @@ RUN sed -i 's/bind-address/#bind-address/' /etc/mysql/my.cnf
 # Clean up
 RUN apt-get clean
 
-EXPOSE 80 3306
+VOLUME /var/lib/mysql/asterisk
+
+EXPOSE 80
 
 CMD ["supervisord"]
